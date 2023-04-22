@@ -12,13 +12,14 @@ submitBtn.addEventListener('click', () => {
     score.textContent = analysisResult.score;
     renderFeedback(analysisResult.feedback);
     outputPanel.style.display = 'flex';
+    outputPanel.classList.remove('animate-out');
+    void outputPanel.offsetWidth;
+    outputPanel.classList.add('animate-in');
   }
 });
 
 function analyzeOpinion(opinion) {
-  const result = { score: 53, feedback: [
-    'some feedback'
-  ] };
+  const result = { score: 0, feedback: [] };
   
   // Add your analysis logic here
   
