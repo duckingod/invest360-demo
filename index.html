@@ -1,24 +1,34 @@
+<!DOCTYPE html>
+<html>
+
 <head>
-  <title>My Website</title>
+  <title>Market Opinion</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
     <div class="input-panel">
-      <textarea id="user-input" placeholder="Enter your opinion"></textarea>
+      <h1>Market Opinion</h1>
+      <p>Enter your opinion about the current market:</p>
+      <textarea id="user-input" placeholder="Type your opinion here"></textarea>
       <button id="submit-btn">Submit</button>
     </div>
-    <div class="score-panel">
-      <h2>Score:</h2>
-      <p id="score">--</p>
-    </div>
-    <div class="feedback-panel">
-      <h2>Feedback:</h2>
-      <ul id="feedback-list">
-        <li>--</li>
-      </ul>
+    <div class="output-panel">
+      <div class="score-panel">
+        <h2>Score:</h2>
+        <p id="score">--</p>
+      </div>
+      <div class="feedback-panel">
+        <h2>Feedback:</h2>
+        <ul id="feedback-list">
+          <li>--</li>
+        </ul>
+      </div>
     </div>
   </div>
+
   <script src="app.js"></script>
 </body>
+
+</html>
