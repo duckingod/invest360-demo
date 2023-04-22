@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>投資全視角</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 </head>
 
 <body>
@@ -14,16 +16,14 @@
       <form>
         <label for="opinion">輸入您的市場觀點：</label>
         <textarea id="opinion" name="opinion" rows="5" required></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit">送出</button>
       </form>
     </div>
     <div class="result-wrapper hidden">
       <div class="score-panel">
-        <h2>Score:</h2>
         <div id="score"></div>
       </div>
       <div class="feedback-panel">
-        <h2>Feedback:</h2>
         <div id="feedback"></div>
       </div>
     </div>

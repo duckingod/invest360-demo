@@ -105,9 +105,15 @@ button:hover {
 }
 
 #score {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
+  white-space: pre-wrap;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 #feedback {
@@ -125,4 +131,8 @@ button:hover {
     margin-bottom: 20px;
     width: 100%;
   }
+}
+
+ol {
+  padding-left: 2em;
 }

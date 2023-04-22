@@ -9,6 +9,10 @@ const inputText = `
 我對 ASMedia 持買進態度，因為我認為 ASMedia 在 USB4 方面的領先技術將支持該公司在 2022 年和 2023 年的強勁盈利增長，並且我認為市場低估的新產品供應和客戶群擴張。 此外，從 2Q22 末開始的 AMD 600 系列新產品週期也將顯著提升 ASMedia 的收入。
 `;
 
+const scoreText = `
+潛在報酬：5%
+潛在風險：43%
+`;
 
 const feedbackText = `
 請考慮以下幾項下行風險：
@@ -26,7 +30,7 @@ form.addEventListener('submit', (event) => {
   const opinion = document.querySelector('#opinion').value;
 
   const result = {
-    score: 86,
+    score: scoreText.trim(),
     feedback: feedbackText,
   }
 
@@ -36,6 +40,18 @@ form.addEventListener('submit', (event) => {
   resultWrapper.classList.remove('hidden');
 });
 
+setTimeout(() => {
+  displayInput(inputText);
+}, 1000);
+
+function displayInput(text) {
+  new TypeIt("#opinion", {
+    strings: text.trim(),
+    speed: 50,
+    waitUntilVisible: true,
+  }).go();
+}
+
 function displayScore(scoreValue) {
   score.textContent = scoreValue;
   scorePanel.classList.add('animated', 'fadeIn');
@@ -43,6 +59,10 @@ function displayScore(scoreValue) {
 
 function displayFeedback(feedback) {
   const feedbackDiv = document.querySelector("#feedback");
-  feedbackDiv.innerHTML = feedback;
+  new TypeIt("#feedback", {
+    strings: feedback.trim().split('\n'),
+    speed: 50,
+    waitUntilVisible: true,
+  }).go();
   feedbackDiv.classList.remove("hidden");
 }
