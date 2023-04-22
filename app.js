@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const container = document.querySelector('.container');
 const resultWrapper = document.querySelector('.result-wrapper');
 const scorePanel = document.querySelector('.score-panel');
 const feedbackPanel = document.querySelector('.feedback-panel');
@@ -29,15 +30,25 @@ form.addEventListener('submit', (event) => {
 
   const opinion = document.querySelector('#opinion').value;
 
-  const result = {
-    score: scoreText.trim(),
-    feedback: feedbackText,
-  }
+  // Show loading animation
+  container.classList.add('loading');
 
-  displayScore(result.score);
-  displayFeedback(result.feedback);
+  // Simulate delay for loading
+  setTimeout(() => {
+    const result = {
+      score: scoreText.trim(),
+      feedback: feedbackText,
+    }
 
-  resultWrapper.classList.remove('hidden');
+    displayScore(result.score);
+    displayFeedback(result.feedback);
+
+    // Hide loading animation
+    container.classList.remove('loading');
+
+    // Show result wrapper
+    resultWrapper.classList.remove('hidden');
+  }, 2000);
 });
 
 setTimeout(() => {
