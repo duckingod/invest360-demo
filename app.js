@@ -1,37 +1,33 @@
-const userInput = document.getElementById('user-input');
-const submitBtn = document.getElementById('submit-btn');
-const outputPanel = document.querySelector('.output-panel');
-const score = document.getElementById('score');
-const feedbackList = document.getElementById('feedback-list');
+const form = document.querySelector('form');
+const resultWrapper = document.querySelector('.result-wrapper');
+const scorePanel = document.querySelector('.score-panel');
+const feedbackPanel = document.querySelector('.feedback-panel');
+const score = document.querySelector('#score');
+const feedback = document.querySelector('#feedback');
 
-submitBtn.addEventListener('click', () => {
-  const userOpinion = userInput.value.trim();
-  
-  if (userOpinion !== '') {
-    const analysisResult = analyzeOpinion(userOpinion);
-    score.textContent = analysisResult.score;
-    renderFeedback(analysisResult.feedback);
-    outputPanel.style.display = 'flex';
-    outputPanel.classList.remove('animate-out');
-    void outputPanel.offsetWidth;
-    outputPanel.classList.add('animate-in');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const opinion = document.querySelector('#opinion').value;
+  // const result = analyzeOpinion(opinion);
+  const result = {
+    score: 86,
+    feedback: '神 feedback'
   }
+
+  displayScore(result.score);
+  displayFeedback(result.feedback);
+
+  resultWrapper.classList.remove('hidden');
 });
 
-function analyzeOpinion(opinion) {
-  const result = { score: 0, feedback: [] };
-  
-  // Add your analysis logic here
-  
-  return result;
+function displayScore(scoreValue) {
+  score.textContent = scoreValue;
+  scorePanel.classList.add('animated', 'fadeIn');
 }
 
-function renderFeedback(feedback) {
-  feedbackList.innerHTML = '';
-  
-  feedback.forEach(item => {
-    const li = document.createElement('li');
-    li.innerHTML = `${item.label}: <span>${item.text}</span>`;
-    feedbackList.appendChild(li);
-  });
+function displayFeedback(feedback) {
+  const feedbackDiv = document.querySelector("#feedback");
+  feedbackDiv.innerHTML = feedback;
+  feedbackDiv.classList.remove("hidden");
 }

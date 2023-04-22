@@ -2,32 +2,32 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Market Opinion</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
-    <div class="input-panel">
-      <h1>Market Opinion</h1>
-      <p>Enter your opinion about the current market:</p>
-      <textarea id="user-input" placeholder="Type your opinion here"></textarea>
-      <button id="submit-btn">Submit</button>
+    <h1>Market Opinion</h1>
+    <div class="form-wrapper">
+      <form>
+        <label for="opinion">Enter your opinion:</label>
+        <textarea id="opinion" name="opinion" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
-    <div class="output-panel">
+    <div class="result-wrapper hidden">
       <div class="score-panel">
         <h2>Score:</h2>
-        <p id="score">--</p>
+        <div id="score"></div>
       </div>
       <div class="feedback-panel">
         <h2>Feedback:</h2>
-        <ul id="feedback-list">
-          <li>--</li>
-        </ul>
+        <div id="feedback"></div>
       </div>
     </div>
   </div>
-
   <script src="app.js"></script>
 </body>
 
